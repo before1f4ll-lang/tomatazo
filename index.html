@@ -25,10 +25,16 @@
       animation: fadeIn 1.5s ease;
     }
 
-    img {
+    img.main-gif {
       width: 150px;
       margin-bottom: 20px;
       border-radius: 15px;
+    }
+
+    img.tomate {
+      width: 120px;
+      margin-top: 15px;
+      display: none;
     }
 
     h1 {
@@ -43,7 +49,7 @@
     .buttons {
       margin-top: 20px;
       position: relative;
-      height: 80px;
+      height: 90px;
     }
 
     button {
@@ -52,8 +58,8 @@
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      transition: transform 0.2s;
       position: absolute;
+      transition: transform 0.2s;
     }
 
     button:hover {
@@ -74,8 +80,8 @@
     }
 
     #respuesta {
-      margin-top: 25px;
-      font-size: 1.2em;
+      margin-top: 20px;
+      font-size: 1.1em;
       color: #e75480;
       display: none;
     }
@@ -89,8 +95,8 @@
 <body>
 
   <div class="card">
-    <!-- GIF -->
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHc3d2F1dGJ0M2N0eXJ6M2J0aTVmNmJwN3RrZ2VwNnE1NnF6YyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oriO0OEd9QIDdllqo/giphy.gif" alt="cute gif">
+    <!-- GIF PRINCIPAL -->
+    <img class="main-gif" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="cute gif">
 
     <h1>Oye… 💕</h1>
 
@@ -109,10 +115,15 @@
 
     <div class="buttons">
       <button class="yes" onclick="decirSi()">Sí 💖</button>
-      <button class="no" id="noBtn" onmouseover="moverNo()">No 🙈</button>
+      <button class="no" id="noBtn" onclick="decirNo()" onmouseover="moverNo()">No 🙈</button>
     </div>
 
     <div id="respuesta"></div>
+
+    <!-- GIF TOMATAZO -->
+    <img class="tomate" id="tomateGif"
+      src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif"
+      alt="tomatazo">
   </div>
 
   <script>
@@ -120,12 +131,24 @@
       const r = document.getElementById("respuesta");
       r.style.display = "block";
       r.innerHTML = "Sabía que dirías que sí 💗✨ Prometo cuidarte y hacerte muy feliz.";
+      document.getElementById("tomateGif").style.display = "none";
+    }
+
+    function decirNo() {
+      const r = document.getElementById("respuesta");
+      const t = document.getElementById("tomateGif");
+
+      r.style.display = "block";
+      r.innerHTML = "¡Auch! 🍅 Eso dolió… inténtalo otra vez 😏";
+      t.style.display = "block";
+
+      moverNo();
     }
 
     function moverNo() {
       const btn = document.getElementById("noBtn");
       const maxX = 250;
-      const maxY = 40;
+      const maxY = 50;
 
       const x = Math.random() * maxX;
       const y = Math.random() * maxY;
