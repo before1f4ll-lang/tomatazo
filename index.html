@@ -102,4 +102,38 @@
 
     <p>
       No quiero que esto se quede solo aquí.  
-      Quiero
+      Quiero intentarlo contigo, de verdad.
+    </p>
+
+    <h2>¿Quieres ser mi novia?</h2>
+
+    <div class="buttons">
+      <button class="yes" onclick="decirSi()">Sí 💖</button>
+      <button class="no" id="noBtn" onmouseover="moverNo()">No 🙈</button>
+    </div>
+
+    <div id="respuesta"></div>
+  </div>
+
+  <script>
+    function decirSi() {
+      const r = document.getElementById("respuesta");
+      r.style.display = "block";
+      r.innerHTML = "Sabía que dirías que sí 💗✨ Prometo cuidarte y hacerte muy feliz.";
+    }
+
+    function moverNo() {
+      const btn = document.getElementById("noBtn");
+      const maxX = 250;
+      const maxY = 40;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+    }
+  </script>
+
+</body>
+</html>
