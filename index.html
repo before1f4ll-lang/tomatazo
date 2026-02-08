@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,28 +12,38 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      color: #333;
     }
 
     .card {
       background: white;
-      padding: 40px;
+      padding: 35px;
       border-radius: 20px;
       max-width: 420px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      position: relative;
       animation: fadeIn 1.5s ease;
+    }
+
+    img {
+      width: 150px;
+      margin-bottom: 20px;
+      border-radius: 15px;
     }
 
     h1 {
       color: #e75480;
-      margin-bottom: 20px;
     }
 
     p {
       font-size: 1.1em;
       line-height: 1.6;
-      margin-bottom: 20px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      position: relative;
+      height: 80px;
     }
 
     button {
@@ -43,8 +52,8 @@
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      margin: 10px;
       transition: transform 0.2s;
+      position: absolute;
     }
 
     button:hover {
@@ -54,10 +63,14 @@
     .yes {
       background: #e75480;
       color: white;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    .maybe {
+    .no {
       background: #f3f3f3;
+      left: 10%;
+      top: 45px;
     }
 
     #respuesta {
@@ -76,6 +89,9 @@
 <body>
 
   <div class="card">
+    <!-- GIF -->
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHc3d2F1dGJ0M2N0eXJ6M2J0aTVmNmJwN3RrZ2VwNnE1NnF6YyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oriO0OEd9QIDdllqo/giphy.gif" alt="cute gif">
+
     <h1>Oye… 💕</h1>
 
     <p>
@@ -86,30 +102,4 @@
 
     <p>
       No quiero que esto se quede solo aquí.  
-      Quiero intentarlo contigo, de verdad.
-    </p>
-
-    <h2>¿Quieres ser mi novia?</h2>
-
-    <button class="yes" onclick="decirSi()">Sí 💖</button>
-    <button class="maybe" onclick="pensarlo()">Déjame pensarlo 🙈</button>
-
-    <div id="respuesta"></div>
-  </div>
-
-  <script>
-    function decirSi() {
-      const r = document.getElementById("respuesta");
-      r.style.display = "block";
-      r.innerHTML = "Prometo cuidarte, hacerte reír y elegirte todos los días 💗✨";
-    }
-
-    function pensarlo() {
-      const r = document.getElementById("respuesta");
-      r.style.display = "block";
-      r.innerHTML = "Tómate tu tiempo 💕 Yo aquí sigo, con la misma ilusión.";
-    }
-  </script>
-
-</body>
-</html>
+      Quiero
