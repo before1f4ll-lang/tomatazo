@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para ti 💗</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      color: #e75480;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .yes {
+      background: #e75480;
+      color: white;
+    }
+
+    .maybe {
+      background: #f3f3f3;
+    }
+
+    #respuesta {
+      margin-top: 25px;
+      font-size: 1.2em;
+      color: #e75480;
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Oye… 💕</h1>
+
+    <p>
+      Desde que empezamos a hablar,  
+      mis días se sienten distintos.<br>
+      Me haces sonreír sin darme cuenta.
+    </p>
+
+    <p>
+      No quiero que esto se quede solo aquí.  
+      Quiero intentarlo contigo, de verdad.
+    </p>
+
+    <h2>¿Quieres ser mi novia?</h2>
+
+    <button class="yes" onclick="decirSi()">Sí 💖</button>
+    <button class="maybe" onclick="pensarlo()">Déjame pensarlo 🙈</button>
+
+    <div id="respuesta"></div>
+  </div>
+
+  <script>
+    function decirSi() {
+      const r = document.getElementById("respuesta");
+      r.style.display = "block";
+      r.innerHTML = "Prometo cuidarte, hacerte reír y elegirte todos los días 💗✨";
+    }
+
+    function pensarlo() {
+      const r = document.getElementById("respuesta");
+      r.style.display = "block";
+      r.innerHTML = "Tómate tu tiempo 💕 Yo aquí sigo, con la misma ilusión.";
+    }
+  </script>
+
+</body>
+</html>
