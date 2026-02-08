@@ -2,153 +2,178 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para ti 💗</title>
+  <title>Para Katherine 💕</title>
+
+  <!-- CONFETTI -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      background: #f6c1cc;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      overflow: hidden;
     }
 
     .card {
       background: white;
-      padding: 35px;
+      padding: 40px 30px;
       border-radius: 20px;
-      max-width: 520px;
+      width: 380px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
       position: relative;
-      animation: fadeIn 1.5s ease;
     }
 
-    img.main-gif {
-      width: 150px;
-      margin-bottom: 20px;
+    .avatar {
+      width: 90px;
       border-radius: 15px;
-    }
-
-    img.tomate {
-      width: 120px;
-      margin-top: 15px;
-      display: none;
+      margin-bottom: 15px;
     }
 
     h1 {
-      color: #e75480;
+      color: #f06292;
     }
 
     p {
-      font-size: 1.1em;
+      font-size: 1em;
       line-height: 1.6;
     }
 
-    .buttons {
-      margin-top: 20px;
-      position: relative;
-      height: 90px;
+    h2 {
+      margin: 20px 0;
     }
 
-    button {
-      padding: 12px 25px;
-      font-size: 1em;
+    .btn {
+      padding: 12px 20px;
+      border-radius: 25px;
       border: none;
-      border-radius: 30px;
+      font-size: 0.95em;
       cursor: pointer;
-      position: absolute;
-      transition: transform 0.2s;
+      margin: 6px;
     }
 
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    .yes {
-      background: #e75480;
+    .btn-yes {
+      background: #f06292;
       color: white;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
-    .no {
-      background: #f3f3f3;
-      left: 10%;
-      top: 45px;
+    .btn-no {
+      background: #f1f1f1;
+      position: absolute;
+      left: 120px;
+      top: 350px;
     }
 
     #respuesta {
       margin-top: 20px;
       font-size: 1.1em;
-      color: #e75480;
+      font-weight: bold;
+      color: #f06292;
       display: none;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    #tomate {
+      width: 130px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    .heart {
+      position: fixed;
+      font-size: 24px;
+      animation: float 3s linear forwards;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-200px);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <!-- GIF PRINCIPAL -->
-    <img class="main-gif" src="https://i.pinimg.com/originals/a6/ab/72/a6ab7203c43c02b1c939798c42631be7.gif" alt="cute gif">
+    <img class="avatar" src="https://i.imgur.com/1X4WQbA.png">
 
-    <h1>Katherine... 💕</h1>
+    <h1>Katherine… 💕</h1>
 
     <p>
-      Has cambiado mi vida y me has enseñado lo que es encontrar en una misma persona alguien a quién querer, con quién pelear, con quién reír hasta que no pueda más.  <br>
-      Eres la causa de mis sonrisas sin siquiera intentarlo. 
+      Has cambiado mi vida y me has enseñado lo que es encontrar en una misma
+      persona alguien a quién querer, con quién pelear, con quién reír hasta que
+      no pueda más.
+    </p>
+
+    <p>
+      Eres la causa de mis sonrisas sin siquiera intentarlo.
     </p>
 
     <h2>¿Quieres ser mi novia?</h2>
 
-    <div class="buttons">
-      <button class="yes" onclick="decirSi()">Si quiero obviamente duh </button>
-      <button class="no" id="noBtn" onclick="decirNo()" onmouseover="moverNo()">Nel pastel </button>
-    </div>
+    <button class="btn btn-yes" onclick="siQuiero()">Sí quiero obviamente duh</button>
+    <button class="btn btn-no" id="noBtn" onclick="nelPastel()" onmouseover="moverNo()">Nel pastel</button>
 
     <div id="respuesta"></div>
-
-    <!-- GIF TOMATAZO -->
-    <img class="tomate" id="tomateGif"
-      src="https://c.tenor.com/C0Gy42t5mJEAAAAC/tenor.gif"
-      alt="tomatazo">
+    <img id="tomate" src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif">
   </div>
 
+  <!-- SONIDO TOMATAZO -->
+  <audio id="sound">
+    <source src="https://www.myinstants.com/media/sounds/pop-cat-original.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
-    function decirSiquiero obviamente duh() {
+    function siQuiero() {
       const r = document.getElementById("respuesta");
       r.style.display = "block";
-      r.innerHTML = "AHUEVOOO, la próxima es la boda (te quiero Katherine)";
-      document.getElementById("tomateGif").style.display = "none";
+      r.innerHTML = "AHUEVOOO, la próxima es la boda 💍🔥";
+      document.getElementById("tomate").style.display = "none";
+
+      // CONFETTI
+      confetti({
+        particleCount: 200,
+        spread: 90,
+        origin: { y: 0.6 }
+      });
+
+      // CORAZONES
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+      }
     }
 
-    function decirNo pastel() {
+    function nelPastel() {
       const r = document.getElementById("respuesta");
-      const t = document.getElementById("tomateGif");
+      const t = document.getElementById("tomate");
+      const s = document.getElementById("sound");
 
       r.style.display = "block";
-      r.innerHTML = "AYORA, intenta otra vez maldita";
+      r.innerHTML = "ahora intenta otra vez maldita 😈🍅";
       t.style.display = "block";
-
+      s.play();
       moverNo();
     }
 
     function moverNo() {
       const btn = document.getElementById("noBtn");
-      const maxX = 250;
-      const maxY = 50;
-
-      const x = Math.random() * maxX;
-      const y = Math.random() * maxY;
-
-      btn.style.left = x + "px";
-      btn.style.top = y + "px";
+      btn.style.left = Math.random() * 250 + "px";
+      btn.style.top = Math.random() * 420 + "px";
     }
   </script>
 
